@@ -48,6 +48,35 @@ $(function() {
         }
     });
 
+    function onResize() {
+        var w = $("#head");
+        if (w.outerWidth() >= $(window).width()) {
+            $("#value").css({
+                borderLeft: 0,
+                paddingLeft: 0,
+                marginRight: "20px"
+            });
+            w.width += '20px';
+            $("#key").css("border-bottom", "1px solid black");
+        }
+        else{
+            $("#value").css({
+                borderLeft: "1px solid black",
+                paddingLeft: "20px",
+                marginRight: 0,
+                marginLeft: "20px"
+            });
+            w.width -= '20px';
+            $("#key").css("border-bottom", 0);
+        }
+    }
+
+    onResize();
+
+    $(window).on("resize", function(){
+        onResize();
+    });
+
 
     /*
     $nav.on("mouseover", function(){
